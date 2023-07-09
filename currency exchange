@@ -1,0 +1,58 @@
+package org.example;
+
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Scanner;
+
+public class Main {
+    private static final double USD_TO_RUB = 73.0;
+    private static final double EUR_TO_RUB = 86.5;
+    private static final double GBP_TO_RUB = 100.0;
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.println("Выберите валюту для обмена:");
+        System.out.println("1. USD");
+        System.out.println("2. EUR");
+        System.out.println("3. GBP");
+
+        int choice = scanner.nextInt();
+
+        double amount;
+        switch (choice) {
+            case 1:
+                System.out.print("Введите сумму в USD: ");
+                amount = scanner.nextDouble();
+                double rubles1 = exchangeUSDToRUB(amount);
+                System.out.println(amount + " USD = " + rubles1 + " RUB");
+                break;
+            case 2:
+                System.out.print("Введите сумму в EUR: ");
+                amount = scanner.nextDouble();
+                double rubles2 = exchangeEURToRUB(amount);
+                System.out.println(amount + " EUR = " + rubles2 + " RUB");
+                break;
+            case 3:
+                System.out.print("Введите сумму в GBP: ");
+                amount = scanner.nextDouble();
+                double rubles3 = exchangeGBPToRUB(amount);
+                System.out.println(amount + " GBP = " + rubles3 + " RUB");
+                break;
+            default:
+                System.out.println("Неверный выбор!");
+        }
+    }
+
+    private static double exchangeUSDToRUB(double usd) {
+        return usd * USD_TO_RUB;
+    }
+
+    private static double exchangeEURToRUB(double eur) {
+        return eur * EUR_TO_RUB;
+    }
+
+    private static double exchangeGBPToRUB(double gbp) {
+        return gbp * GBP_TO_RUB;
+    }
+}
